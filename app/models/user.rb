@@ -1,9 +1,11 @@
 class User < ApplicationRecord
   enum role: [:user, :admin]
   after_initialize :set_default_role, :if => :new_record?
+  
+  validates :username, presence: true
+  validates :username, uniqueness: true
 
   def set_default_role
-    logger.debug(self.role)
     self.role ||= :user
   end
 

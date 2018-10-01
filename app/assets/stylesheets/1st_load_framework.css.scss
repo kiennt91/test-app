@@ -47,14 +47,11 @@ section {
 
 // 共通フォーム用
 .base-form {
-  padding-top: 30px;
-  max-width: 460px;
   margin: 0 auto;
 }
 .base-form form {
   @extend .well;
   @extend .well-lg;
-  padding-bottom: 40px;
 }
 .base-form .right {
   float: right !important;
@@ -77,6 +74,17 @@ section {
 .search-form form {
   padding-bottom: 25px;
   margin-bottom: 0;
+}
+
+// 認証、登録、編集フォーム用
+.action-form {
+  @extend .base-form;
+  padding-top: 30px;
+  max-width: 460px;
+}
+
+.action-form form {
+  padding-bottom: 40px;
 }
 
 #error_explanation:not(:empty) {

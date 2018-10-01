@@ -1,6 +1,7 @@
-<h1>カテゴリー編集</h1>
-
-<%= render 'form', category: @category %>
-
-<%= link_to 'Show', @category %> |
-<%= link_to '戻る', categories_path %>
+<div class="action-form">
+  <h3>カテゴリー編集</h3>
+  
+  <%= render 'form', category: @category, action: 'update' %>
+  
+  <%= link_to '戻る', categories_path %>
+</div>

@@ -3,19 +3,15 @@ class CategoriesController < ApplicationController
 
   # GET /categories
   def index
-    @categories = Category.page(params[:page])
+    @categories = Category.order(:name).page(params[:page])
   end
 
   # GET/POST /categories/search
   def search
     @search_category = Search::Category.new(search_params)
     
-    # 検索条件のバリデーションがOK場合
-    if @search_category.valid?
-      @categories = @search_category.search.page(params[:page]) 
-    else
-      @categories = Category.page(params[:page]) 
-    end
+    # 検索パラメータにより検索
+    @categories = @search_category.search.page(params[:page]) 
     render :index
   end
 

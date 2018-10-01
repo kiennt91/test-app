@@ -1,0 +1,19 @@
+<h4>
+  <a class="btn btn-primary" data-toggle="collapse" href="#publisherSearch" role="button" aria-expanded="true" aria-controls="publisherSearch">
+  <span class="glyphicon glyphicon-search"></span> 検索条件
+  </a>
+</h4>
+<div class='search-form collapse in' id="publisherSearch">
+  <%= form_with(scope: :search_publisher, url: search_publishers_path) do |form| %>
+    <div class='form-group row'>
+      <div class='col-md-2 col-sm-3 col-xs-4'>
+        <%= form.label :name, 'パブリッシャー名' %>
+      </div>
+      <div class='col-md-6 col-sm-6 col-xs-6'>
+        <%= form.text_field :name, class: 'form-control' %>
+      </div>
+    </div>
+
+    <%= form.submit '検索' , :class => 'button text-center' %>
+  <% end %>
+</div>

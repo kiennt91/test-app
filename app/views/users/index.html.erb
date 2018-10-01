@@ -1,14 +1,10 @@
 <div class="container">
   <div class="row">
-    <h3>Users</h3>
+    <h3>ユーザー一覧</h3>
     <div class="column">
       <table class="table">
         <tbody>
-          <% @users.each do |user| %>
-            <tr>
-              <%= render user %>
-            </tr>
-          <% end %>
+          <%= render partial: 'user', collection: @users %>
         </tbody>
       </table>
     </div>

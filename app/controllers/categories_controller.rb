@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :admin_only
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   # GET /categories
@@ -68,6 +70,6 @@ class CategoriesController < ApplicationController
     def search_params
       params
         .require(:search_category)
-        .permit(:name)
+        .permit(Search::Category::ATTRIBUTES)
     end
 end

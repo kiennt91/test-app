@@ -1,5 +1,6 @@
 class Search::Category < Search::Base
-  attr_accessor :name
+  ATTRIBUTES = %i(name)
+  attr_accessor(*ATTRIBUTES)
 
   def search
     results = ::Category.all

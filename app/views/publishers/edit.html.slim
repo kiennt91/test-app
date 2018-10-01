@@ -1,0 +1,5 @@
+.action-form
+  h3
+    | パブリッシャー編集
+  = render 'form', publisher: @publisher, action: 'update'
+  = link_to '戻る', publishers_path

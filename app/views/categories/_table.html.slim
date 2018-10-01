@@ -1,0 +1,31 @@
+- if @categories.present?
+  table.table.table-bordered
+    thead
+      tr
+        th.text-center
+          | カテゴリー名
+        th.text-center
+          | 作成日時
+        th.text-center
+          | 更新日時
+        th.text-center[colspan="3"]
+          | 設定
+    tbody
+      - @categories.each do |category|
+        tr
+          td
+            = category.name
+          td
+            = category.created_at_label
+          td
+            = category.updated_at_label
+          td.text-center
+            = link_to '詳細', category
+          td.text-center
+            = link_to '編集', edit_category_path(category)
+          td.text-center
+            = link_to '削除', category, method: :delete, data: { confirm: '本当によろしいですか?' }
+      = paginate @categories
+- else
+  h4
+    | NO DATA

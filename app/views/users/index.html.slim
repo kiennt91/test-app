@@ -1,0 +1,8 @@
+.container
+  .row
+    h3
+      | ユーザー一覧
+    .column
+      table.table
+        tbody
+          = render partial: 'user', collection: @users

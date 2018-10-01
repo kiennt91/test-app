@@ -1,0 +1,13 @@
+= form_with(model: publisher, local: true) do |form|
+  - if publisher.errors.any?
+    #error_explanation
+      h2
+        | エラー
+      ul
+        - publisher.errors.full_messages.each do |message|
+          li
+            = message
+  .form-group.row
+    = form.label :name, "パブリッシャー名"
+    = form.text_field :name, class: 'form-control'
+  = form.submit t("helpers.submit.#{action}"), :class => 'button right'

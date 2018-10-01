@@ -60,6 +60,7 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'active_decorator'
+gem "slim-rails"
 
 group :development do
   gem 'better_errors'

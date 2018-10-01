@@ -1,0 +1,31 @@
+- if @publishers.present?
+  table.table.table-bordered
+    thead
+      tr
+        th.text-center
+          | パブリッシャー名
+        th.text-center
+          | 作成日時
+        th.text-center
+          | 更新日時
+        th.text-center[colspan="3"]
+          | 設定
+    tbody
+      - @publishers.each do |publisher|
+        tr
+          td
+            = publisher.name
+          td
+            = publisher.created_at_label
+          td
+            = publisher.updated_at_label
+          td.text-center
+            = link_to '詳細', publisher
+          td.text-center
+            = link_to '編集', edit_publisher_path(publisher)
+          td.text-center
+            = link_to '削除', publisher, method: :delete, data: { confirm: '本当によろしいですか?' }
+      = paginate @publishers
+- else
+  h4
+    | NO DATA

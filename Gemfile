@@ -58,6 +58,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'jquery-rails'
+gem 'kaminari'
+gem 'active_decorator'
 
 group :development do
   gem 'better_errors'

@@ -1,6 +1,4 @@
-class UsersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :admin_only
+class Admin::UsersController < Admin::Base
   before_action :set_user, only: [:show, :update, :destroy]
 
   # GET /users
@@ -15,16 +13,16 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   def update
     if @user.update_attributes(user_params)
-      redirect_to users_path, :notice => "ユーザーを更新しました。"
+      redirect_to admin_users_path, :notice => "ユーザーを更新しました。"
     else
-      redirect_to users_path, :alert => "ユーザーの更新を失敗しました。"
+      redirect_to admin_users_path, :alert => "ユーザーの更新を失敗しました。"
     end
   end
 
   # DELETE /users/1
   def destroy
     @user.destroy
-    redirect_to users_path, :notice => "ユーザーを削除しました。"
+    redirect_to admin_users_path, :notice => "ユーザーを削除しました。"
   end
 
   private

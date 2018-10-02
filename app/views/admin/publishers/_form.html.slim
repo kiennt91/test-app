@@ -1,4 +1,4 @@
-= form_with(model: publisher, local: true) do |form|
+= form_with(model: [:admin, publisher], local: true) do |form|
   - if publisher.errors.any?
     #error_explanation
       h2

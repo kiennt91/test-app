@@ -1,0 +1,9 @@
+tr
+  td
+    = link_to user.email, [:admin, user]
+  td
+    = form_with(model: [:admin, user], local: true) do |f|
+      = f.select :role, role_collections
+      = f.submit 'ロール変更', class: 'button-xs'
+  td
+    = link_to("ユーザー削除", [:admin, user], :data => { :confirm => "本当によろしいですか" }, :method => :delete, :class => 'button-xs') unless user == current_user

@@ -3,7 +3,7 @@ h4
     span.glyphicon.glyphicon-search
     |  検索条件 
 #publisherSearch.search-form.collapse.in
-  = form_with(scope: :search_publisher, url: search_publishers_path) do |form|
+  = form_with(scope: :search_publisher, url: search_admin_publishers_path) do |form|
     .form-group.row
       .col-md-2.col-sm-3.col-xs-4
         = form.label :name, 'パブリッシャー名'

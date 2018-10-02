@@ -20,11 +20,11 @@
           td
             = category.updated_at_label
           td.text-center
-            = link_to '詳細', category
+            = link_to '詳細', [:admin, category]
           td.text-center
-            = link_to '編集', edit_category_path(category)
+            = link_to '編集', edit_admin_category_path(category)
           td.text-center
-            = link_to '削除', category, method: :delete, data: { confirm: '本当によろしいですか?' }
+            = link_to '削除', [:admin, category], method: :delete, data: { confirm: '本当によろしいですか?' }
       = paginate @categories
 - else
   h4

@@ -3,7 +3,7 @@ h4
     span.glyphicon.glyphicon-search
     |  検索条件 
 #categorySearch.search-form.collapse.in
-  = form_with(scope: :search_category, url: search_categories_path) do |form|
+  = form_with(scope: :search_category, url: search_admin_categories_path) do |form|
     .form-group.row
       .col-md-2.col-sm-3.col-xs-4
         = form.label :name, 'カテゴリー名'

@@ -1,0 +1,5 @@
+.action-form
+  h3
+    | 製品登録
+  = render 'form', product: @product, action: 'create'
+  = link_to '戻る', admin_products_path

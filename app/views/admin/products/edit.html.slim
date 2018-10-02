@@ -1,0 +1,5 @@
+.action-form
+  h3
+    | 製品編集
+  = render 'form', product: @product, action: 'update'
+  = link_to '戻る', admin_products_path

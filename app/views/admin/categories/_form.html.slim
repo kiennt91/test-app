@@ -7,7 +7,7 @@
         - category.errors.full_messages.each do |message|
           li
             = message
-  .form-group.row
+  .form-group
     = form.label :name, "カテゴリー名"
     = form.text_field :name, class: 'form-control'
   = form.submit t("helpers.submit.#{action}"), :class => 'button right'

@@ -1,0 +1,31 @@
+- if @products.present?
+  table.table.table-bordered
+    thead
+      tr
+        th.text-center
+          | 製品名
+        th.text-center
+          | 作成日時
+        th.text-center
+          | 更新日時
+        th.text-center[colspan="3"]
+          | 設定
+    tbody
+      - @products.each do |product|
+        tr
+          td
+            = product.name
+          td
+            = product.created_at_label
+          td
+            = product.updated_at_label
+          td.text-center
+            = link_to '詳細', [:admin, product]
+          td.text-center
+            = link_to '編集', edit_admin_product_path(product)
+          td.text-center
+            = link_to '削除', [:admin, product], method: :delete, data: { confirm: '本当によろしいですか?' }
+      = paginate @products
+- else
+  h4
+    | NO DATA

@@ -2,23 +2,23 @@
   table.table.table-bordered
     thead
       tr
-        th.text-center
+        th.text-center.length-large
           | 製品名
-        th.text-center
+        th.text-center.length-large
           | カテゴリー名 
-        th.text-center
+        th.text-center.length-large
           | パブリッシャー名 
-        th.text-center
+        th.text-center.length-large
           | 画像 
-        th.text-center
+        th.text-center.length-large
           | 残量 
-        th.text-center
+        th.text-center.length-large
           | 売上量 
-        th.text-center
+        th.text-center.length-large
           | 価格（円） 
-        th.text-center
+        th.text-center.length-large
           | ステータス 
-        th.text-center
+        th.text-center.length-large
           | 作成日時
         th.text-center
           | 更新日時
@@ -48,11 +48,14 @@
           td
             = product.updated_at_label
           td.text-center
-            = link_to '詳細', [:admin, product]
+            = link_to [:admin, product] do
+              span.glyphicon.glyphicon-list-alt
           td.text-center
-            = link_to '編集', edit_admin_product_path(product)
+            = link_to edit_admin_product_path(product) do
+              span.glyphicon.glyphicon-edit
           td.text-center
-            = link_to '削除', [:admin, product], method: :delete, data: { confirm: '本当によろしいですか?' }
+            = link_to [:admin, product], method: :delete, data: { confirm: '本当によろしいですか?' } do
+              span.glyphicon.glyphicon-trash
       = paginate @products
 - else
   h4

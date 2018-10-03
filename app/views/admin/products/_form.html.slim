@@ -33,6 +33,9 @@
       = button_tag type: 'button', class: 'upload-btn btn btn-primary right'
         | Upload
   img.preview-img src = ( form.object.image_url || '' )
+  .form-group
+    = form.label :description, "説明"
+    = form.text_area :description, rows: 10, class: 'form-control'
   = form.submit t("helpers.submit.#{action}"), :class => 'button right'
 .hide
   = form_with(scope: :upload_product, url: upload_admin_products_path, multipart: true, class: 'upload-form') do |form|

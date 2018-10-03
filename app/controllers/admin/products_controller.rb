@@ -76,9 +76,11 @@ class Admin::ProductsController < Admin::Base
           :name, 
           :category_id, 
           :publisher_id, 
+          :status,
           :total_amount, 
           :price,
-          :image_url
+          :image_url,
+          :description
         )
       end
   

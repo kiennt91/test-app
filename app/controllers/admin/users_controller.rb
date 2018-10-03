@@ -1,16 +1,16 @@
 class Admin::UsersController < Admin::Base
   before_action :set_user, only: [:show, :update, :destroy]
 
-  # GET /users
+  # GET /admin/users
   def index
     @users = User.all
   end
 
-  # GET /users/1
+  # GET /admin/users/1
   def show
   end
 
-  # PATCH/PUT /users/1
+  # PATCH/PUT /admin/users/1
   def update
     if @user.update_attributes(user_params)
       redirect_to admin_users_path, :notice => "ユーザーを更新しました。"
@@ -19,7 +19,7 @@ class Admin::UsersController < Admin::Base
     end
   end
 
-  # DELETE /users/1
+  # DELETE /admin/users/1
   def destroy
     @user.destroy
     redirect_to admin_users_path, :notice => "ユーザーを削除しました。"

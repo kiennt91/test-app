@@ -1,5 +1,5 @@
 module Admin::UsersHelper
   def role_collections
-    User.roles.keys.map { |role| [role.titleize,role] }
+    return @role_collections ||= User.roles.keys.map { |role| [role.titleize,role] }
   end
 end

@@ -10,13 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_01_151739) do
+ActiveRecord::Schema.define(version: 2018_10_02_084811) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_categories_on_name", unique: true
+  end
+
+  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "category_id", null: false
+    t.integer "publisher_id", null: false
+    t.string "name", null: false
+    t.integer "total_amount", default: 0, null: false
+    t.integer "sell_amount", default: 0, null: false
+    t.integer "price", default: 0, null: false
+    t.string "image_url", null: false
+    t.text "description"
+    t.integer "status", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id", "publisher_id", "name"], name: "idx_cate_publ_prod", unique: true
+    t.index ["category_id"], name: "idx_category_id"
+    t.index ["publisher_id"], name: "idx_publisher_id"
   end
 
   create_table "publishers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

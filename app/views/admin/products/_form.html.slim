@@ -17,22 +17,24 @@
     = form.label :publisher_id, "パブリッシャー"
     = form.collection_select :publisher_id, Publisher.all, :id, :name, {}, { class: 'form-control' }
   .form-group
-    = form.label :total_amount, "量"
+    = form.label :status, "ステータス"
+    = form.select :status, status_collections, {}, { class: 'form-control' }
+  .form-group
+    = form.label :total_amount, "総量"
     = form.number_field :total_amount, class: 'form-control'
   .form-group
     = form.label :price, "価格(円)"
     = form.number_field :price, class: 'form-control'
+  = form.label :image_url, "画像URL"
   .form-group.row
     .col-sm-9 
-      = form.label :image_url, "画像URL"
       = form.text_field :image_url, class: 'form-control'
     .col-sm-3
       = button_tag type: 'button', class: 'upload-btn btn btn-primary right'
         | Upload
-  = image_tag @upload_url || ''
-
+  img.preview-img src = ( form.object.image_url || '' )
   = form.submit t("helpers.submit.#{action}"), :class => 'button right'
 .hide
-  = form_with(url: upload_admin_products_path, multipart: true, class: 'upload-form') do |form|
-    = form.file_field :fileupload, accept: 'image/png,image/jpeg', class: 'upload-file'
+  = form_with(scope: :upload_product, url: upload_admin_products_path, multipart: true, class: 'upload-form') do |form|
+    = form.file_field :file_upload, accept: 'image/png,image/jpeg', class: 'upload-file'
 

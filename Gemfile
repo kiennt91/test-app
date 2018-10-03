@@ -61,6 +61,9 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'active_decorator'
 gem "slim-rails"
+gem 'aws-sdk-rails'
+gem 'aws-sdk-s3', '~> 1'
+gem 'enum_help'
 
 group :development do
   gem 'better_errors'

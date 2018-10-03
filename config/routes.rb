@@ -8,17 +8,17 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
     resources :categories do
-      get 'search', on: :collection
+      get  'search', on: :collection
       post 'search', on: :collection
     end
 
     resources :publishers do
-      get 'search', on: :collection
+      get  'search', on: :collection
       post 'search', on: :collection
     end
 
     resources :products do
-      get 'search', on: :collection
+      get  'search', on: :collection
       post 'search', on: :collection
       post 'upload', on: :collection
     end

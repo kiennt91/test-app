@@ -5,6 +5,20 @@
         th.text-center
           | 製品名
         th.text-center
+          | カテゴリー名 
+        th.text-center
+          | パブリッシャー名 
+        th.text-center
+          | 画像 
+        th.text-center
+          | 残量 
+        th.text-center
+          | 売上量 
+        th.text-center
+          | 価格（円） 
+        th.text-center
+          | ステータス 
+        th.text-center
           | 作成日時
         th.text-center
           | 更新日時
@@ -15,6 +29,20 @@
         tr
           td
             = product.name
+          td
+            = product.category.name
+          td
+            = product.publisher.name
+          td
+            img.list-product-img src = product.image_url
+          td
+            = product.remaining_amount_label
+          td
+            = product.sell_amount_label
+          td
+            = product.price_label
+          td
+            = product.status_label
           td
             = product.created_at_label
           td

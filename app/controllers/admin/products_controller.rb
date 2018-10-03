@@ -3,7 +3,8 @@ class Admin::ProductsController < Admin::Base
   
     # GET /admin/products
     def index
-      @products = Product.order(:name).page(params[:page])
+      @products = Product.includes(:category, :publisher)
+        .order(:name).page(params[:page])
     end
   
     # GET/POST /admin/products/search
@@ -56,8 +57,12 @@ class Admin::ProductsController < Admin::Base
 
     # POST /admin/products/upload
     def upload
-      @upload_url = "https://ja.facebookbrand.com/wp-content/themes/fb-branding/prj-fb-branding/assets/images/thumb-drawn.svg";
-      
+      upload_s3 = UploadS3.new(upload_params[:file_upload])
+      # S3にアップロード
+      upload_s3.upload
+
+      # パブリックURLを取得
+      @image_url = upload_s3.public_url
     end
   
     private
@@ -67,7 +72,14 @@ class Admin::ProductsController < Admin::Base
       end
   
       def product_params
-        params.require(:product).permit(:name)
+        params.require(:product).permit(
+          :name, 
+          :category_id, 
+          :publisher_id, 
+          :total_amount, 
+          :price,
+          :image_url
+        )
       end
   
       # 検索フォームから受け取ったパラメータ
@@ -75,6 +87,11 @@ class Admin::ProductsController < Admin::Base
         params
           .require(:search_product)
           .permit(Search::Product::ATTRIBUTES)
+      end
+
+      # 画像アップロード用パラメータ
+      def upload_params
+        params.require(:upload_product).permit(:file_upload)
       end
   end
   

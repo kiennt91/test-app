@@ -1,7 +1,19 @@
-p
-  strong
-    | Name:
-  = @publisher.name
-= link_to 'Edit', edit_admin_publisher_path(@publisher)
+h3
+  span.glyphicon.glyphicon-list-alt
+  |  #{t('publisher.detail')}
+.base-box
+  .row
+    label.col-md-2.col-sm-2.col-xs-2
+      | #{t('publisher.name')} :  
+    .col-md-4.col-sm-4.col-xs-4
+      = @publisher.name
+  .row
+    label.col-md-2.col-sm-2.col-xs-2
+      | #{t('category.list')} :  
+    .col-md-4.col-sm-4.col-xs-4
+      - @publisher.categories.each do |category|
+        = link_to category.name, [:admin, category]
+        br
+= link_to t('text.edit'), edit_admin_publisher_path(@publisher)
 |  | 
-= link_to 'Back', admin_publishers_path
+= link_to t('text.back'), :back 

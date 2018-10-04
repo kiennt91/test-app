@@ -1,17 +1,15 @@
 - if user_signed_in?
   li.dropdown
     a.dropdown-toggle[data-toggle="dropdown" href="#"]
-      | アカウント(
-      = current_user.username
-      | ) 
+      | #{t('text.account')}(#{current_user.username}) 
       span.caret
     ul.dropdown-menu
       li
-        = link_to 'アカウント編集', edit_user_registration_path
+        = link_to t('account.edit'), edit_user_registration_path
       li
-        = link_to 'ログアウト', destroy_user_session_path, :method=>'delete'
+        = link_to t('account.logout'), destroy_user_session_path, :method=>'delete'
 - else
   li
-    = link_to 'ログイン', new_user_session_path
+    = link_to t('account.login'), new_user_session_path
   li
-    = link_to 'アカウント登録', new_user_registration_path
+    = link_to t('account.new'), new_user_registration_path

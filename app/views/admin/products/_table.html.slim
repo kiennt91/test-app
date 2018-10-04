@@ -2,37 +2,37 @@
   table.table.table-bordered
     thead
       tr
-        th.text-center.length-large
-          | 製品名
-        th.text-center.length-large
-          | カテゴリー名 
-        th.text-center.length-large
-          | パブリッシャー名 
-        th.text-center.length-large
-          | 画像 
-        th.text-center.length-large
-          | 残量 
-        th.text-center.length-large
-          | 売上量 
-        th.text-center.length-large
-          | 価格（円） 
-        th.text-center.length-large
-          | ステータス 
-        th.text-center.length-large
-          | 作成日時
-        th.text-center
-          | 更新日時
-        th.text-center[colspan="3"]
-          | 設定
+        th.text-center.length-medium
+          = t('product.name')
+        th.text-center.length-medium
+          = t('category.name') 
+        th.text-center.length-medium
+          = t('publisher.name')
+        th.text-center.length-medium
+          = t('text.image')
+        th.text-center.length-small
+          = t('text.remaining_amount') 
+        th.text-center.length-small
+          = t('text.sell_amount')
+        th.text-center.length-small
+          = t('text.price')
+        th.text-center.length-small
+          = t('text.status') 
+        th.text-center.length-medium
+          = t('text.created_at')
+        th.text-center.length-medium
+          = t('text.updated_at')
+        th.text-center.length-small[colspan="3"]
+          = t('text.setting')
     tbody
       - @products.each do |product|
         tr
           td
             = product.name
           td
-            = product.category.name
+            = link_to product.category.name, [:admin, product.category]
           td
-            = product.publisher.name
+            = link_to product.publisher.name, [:admin, product.publisher]
           td
             img.list-product-img src = product.image_url
           td
@@ -54,7 +54,7 @@
             = link_to edit_admin_product_path(product) do
               span.glyphicon.glyphicon-edit
           td.text-center
-            = link_to [:admin, product], method: :delete, data: { confirm: '本当によろしいですか?' } do
+            = link_to [:admin, product], method: :delete, data: { confirm: t('confirm.delete') } do
               span.glyphicon.glyphicon-trash
       = paginate @products
 - else

@@ -1,5 +1,5 @@
 .action-form
   h3
-    | パブリッシャー登録
+    = t('publisher.new')
   = render 'form', publisher: @publisher, action: 'create'
-  = link_to '戻る', admin_publishers_path
+  = link_to t('text.back'), :back

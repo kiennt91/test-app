@@ -1,7 +1,7 @@
 h3
-  | パブリッシャー一覧
+  span.glyphicon.glyphicon-list
+  |  #{t('publisher.list')}
 #searchFormRender
   = render 'search_form', search_publisher: @search_publisher
 #tableRender
   = render 'table', publishers: @publishers
-br

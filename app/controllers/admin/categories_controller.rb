@@ -1,5 +1,5 @@
 class Admin::CategoriesController < Admin::Base
-  before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :set_category, only: [:edit, :update, :destroy]
 
   # GET /admin/categories
   def index
@@ -17,6 +17,7 @@ class Admin::CategoriesController < Admin::Base
 
   # GET /admin/categories/1
   def show
+    @category = Category.preload(:publishers).find(params[:id]) 
   end
 
   # GET /admin/categories/new

@@ -1,29 +1,29 @@
 h4
   a.btn.btn-primary[data-toggle="collapse" href="#productSearch" role="button" aria-expanded="true" aria-controls="productSearch"]
     span.glyphicon.glyphicon-search
-    |  検索条件 
+    |  #{t('text.search_condition')}
 #productSearch.search-form.collapse.in
-  = form_with(scope: :search_product, url: search_admin_products_path) do |form|
+  = form_with(scope: :search_product, url: search_admin_products_path, class: 'form-horizontal') do |form|
     .row
       .form-group.row.col-md-6.col-sm-6.col-xs-12
         .col-md-4.col-sm-4.col-xs-4
-          = form.label :product_name, '製品名'
+          = form.label :product_name, t('product.name'), class: 'control-label'
         .col-md-8.col-sm-8.col-xs-8
           = form.text_field :product_name, class: 'form-control'
       .form-group.row.col-md-6.col-sm-6.col-xs-12
         .col-md-4.col-sm-4.col-xs-4
-          = form.label :status, 'ステータス'
+          = form.label :status, t('text.status'), class: 'control-label'
         .col-md-8.col-sm-8.col-xs-8
-          = form.select :status, status_collections_with_all, {}, { class: 'form-control' }
+          = form.select :status, status_collections, { include_blank: t('text.all') }, { class: 'form-control' }
     .row
       .form-group.row.col-md-6.col-sm-6.col-xs-12
         .col-md-4.col-sm-4.col-xs-4
-          = form.label :category_name, 'カテゴリー名'
+          = form.label :category_name, t('category.name'), class: 'control-label'
         .col-md-8.col-sm-8.col-xs-8
           = form.text_field :category_name, class: 'form-control'
       .form-group.row.col-md-6.col-sm-6.col-xs-12
         .col-md-4.col-sm-4.col-xs-4
-          = form.label :publisher_name, 'パブリッシャー名'
+          = form.label :publisher_name, t('publisher.name'), class: 'control-label'
         .col-md-8.col-sm-8.col-xs-8
           = form.text_field :publisher_name, class: 'form-control'
-    = form.submit '検索' , :class => 'button text-center'
+    = form.submit t('text.search') , :class => 'button text-center'

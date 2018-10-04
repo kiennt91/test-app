@@ -1,8 +1,15 @@
 h3
-  | ユーザー
-p
-  | Username: 
-  = @user.username
-p
-  | Email: 
-  = @user.email
+  span.glyphicon.glyphicon-list-alt
+  |  #{t('user.detail')}
+.base-box
+  .row
+    label.col-md-2.col-sm-2.col-xs-2
+      | #{t('user.name')} :  
+    .col-md-4.col-sm-4.col-xs-4
+      = @user.username
+  .row
+    label.col-md-2.col-sm-2.col-xs-2
+      | #{t('text.email')} :  
+    .col-md-4.col-sm-4.col-xs-4
+      = @user.email
+= link_to t('text.back'), :back 

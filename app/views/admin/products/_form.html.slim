@@ -2,30 +2,30 @@
   - if product.errors.any?
     #error_explanation
       h2
-        | エラー
+        = t('text.error')
       ul
         - product.errors.full_messages.each do |message|
           li
             = message
   .form-group
-    = form.label :name, "製品名"
+    = form.label :name, t('product.name')
     = form.text_field :name, class: 'form-control'
   .form-group
-    = form.label :category_id, "カテゴリー"
+    = form.label :category_id, t('category.name')
     = form.collection_select :category_id, Category.all, :id, :name, {}, { class: 'form-control' }
   .form-group
-    = form.label :publisher_id, "パブリッシャー"
+    = form.label :publisher_id, t('publisher.name')
     = form.collection_select :publisher_id, Publisher.all, :id, :name, {}, { class: 'form-control' }
   .form-group
-    = form.label :status, "ステータス"
+    = form.label :status, t('text.status')
     = form.select :status, status_collections, {}, { class: 'form-control' }
   .form-group
-    = form.label :total_amount, "総量"
+    = form.label :total_amount, t('text.total_amount')
     = form.number_field :total_amount, class: 'form-control'
   .form-group
-    = form.label :price, "価格(円)"
+    = form.label :price, t('text.price')
     = form.number_field :price, class: 'form-control'
-  = form.label :image_url, "画像URL"
+  = form.label :image_url, t('text.image_url')
   .form-group.row
     .col-sm-9 
       = form.text_field :image_url, class: 'form-control'
@@ -34,7 +34,7 @@
         | Upload
   img.preview-img src = ( form.object.image_url || '' )
   .form-group
-    = form.label :description, "説明"
+    = form.label :description, t('text.description')
     = form.text_area :description, rows: 10, class: 'form-control'
   = form.submit t("helpers.submit.#{action}"), :class => 'button right'
 .hide

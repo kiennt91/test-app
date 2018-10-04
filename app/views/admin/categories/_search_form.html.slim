@@ -1,12 +1,19 @@
 h4
   a.btn.btn-primary[data-toggle="collapse" href="#categorySearch" role="button" aria-expanded="true" aria-controls="categorySearch"]
     span.glyphicon.glyphicon-search
-    |  検索条件 
+    |  #{t('text.search_condition')}
 #categorySearch.search-form.collapse.in
-  = form_with(scope: :search_category, url: search_admin_categories_path) do |form|
-    .form-group.row
-      .col-md-2.col-sm-3.col-xs-4
-        = form.label :name, 'カテゴリー名'
-      .col-md-6.col-sm-6.col-xs-6
-        = form.text_field :name, class: 'form-control'
-    = form.submit '検索' , :class => 'button text-center'
+  = form_with(scope: :search_category, url: search_admin_categories_path, class: 'form-horizontal') do |form|
+    .row
+      .form-group.row.col-md-6.col-sm-6.col-xs-12
+        .col-md-4.col-sm-4.col-xs-4
+          = form.label :name, t('category.name'), class: 'control-label'
+        .col-md-8.col-sm-8.col-xs-8
+          = form.text_field :name, class: 'form-control'
+      .form-group.row.col-md-6.col-sm-6.col-xs-12
+        .col-md-4.col-sm-4.col-xs-4
+          = form.label :publisher_id, t('publisher.name'), class: 'control-label'
+        .col-md-8.col-sm-8.col-xs-8
+          = form.collection_select :publisher_id, Publisher.all, :id, :name, { include_blank: t('text.all') }, { class: 'form-control' }
+    = form.submit t('text.search') , :class => 'button text-center'
+

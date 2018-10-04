@@ -4,6 +4,8 @@ tr
   td
     = form_with(model: [:admin, user], local: true) do |f|
       = f.select :role, role_collections
-      = f.submit 'ロール変更', class: 'button-xs'
+      |  
+      = f.submit t('user.change_role'), class: 'button-xs'
   td
-    = link_to("ユーザー削除", [:admin, user], :data => { :confirm => "本当によろしいですか" }, :method => :delete, :class => 'button-xs') unless user == current_user
+    - unless user == current_user
+      = link_to t('user.delete'), [:admin, user], :data => { :confirm => t('confirm.delete') }, :method => :delete, :class => 'button-xs'

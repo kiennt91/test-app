@@ -1,5 +1,5 @@
 .action-form
   h3
-    | カテゴリー編集
+    = t('category.edit')
   = render 'form', category: @category, action: 'update'
-  = link_to '戻る', admin_categories_path
+  = link_to t('text.back'), :back

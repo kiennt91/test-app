@@ -8,4 +8,16 @@ class Search::Base
   def escape_like(string)
     string.gsub(/[\\%_]/) { |m| "\\#{m}" }
   end
+
+  def product_table
+    ::Product.arel_table
+  end
+
+  def category_table
+    ::Category.arel_table
+  end
+
+  def publisher_table
+    ::Publisher.arel_table
+  end
 end

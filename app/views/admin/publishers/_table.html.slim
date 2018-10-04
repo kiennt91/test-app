@@ -2,14 +2,14 @@
   table.table.table-bordered
     thead
       tr
-        th.text-center
-          | パブリッシャー名
-        th.text-center
-          | 作成日時
-        th.text-center
-          | 更新日時
-        th.text-center[colspan="3"]
-          | 設定
+        th.text-center.length-large
+          = t('publisher.name')
+        th.text-center.length-large
+          = t('text.created_at')
+        th.text-center.length-large
+          = t('text.updated_at')
+        th.text-center.length-small[colspan="3"]
+          = t('text.setting')
     tbody
       - @publishers.each do |publisher|
         tr
@@ -20,11 +20,14 @@
           td
             = publisher.updated_at_label
           td.text-center
-            = link_to '詳細', [:admin, publisher]
+            = link_to [:admin, publisher] do
+              span.glyphicon.glyphicon-list-alt
           td.text-center
-            = link_to '編集', edit_admin_publisher_path(publisher)
+            = link_to edit_admin_publisher_path(publisher) do
+              span.glyphicon.glyphicon-edit
           td.text-center
-            = link_to '削除', [:admin, publisher], method: :delete, data: { confirm: '本当によろしいですか?' }
+            = link_to [:admin, publisher], method: :delete, data: { confirm: t('confirm.delete') } do
+              span.glyphicon.glyphicon-trash
       = paginate @publishers
 - else
   h4

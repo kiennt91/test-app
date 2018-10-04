@@ -1,7 +1,7 @@
 h3
-  | カテゴリー一覧
+  span.glyphicon.glyphicon-list
+  |  #{t('category.list')}
 #searchFormRender
   = render 'search_form', search_category: @search_category
 #tableRender
   = render 'table', categories: @categories
-br

@@ -1,5 +1,5 @@
 .action-form
   h3
-    | 製品編集
+    = t('product.edit')
   = render 'form', product: @product, action: 'update'
-  = link_to '戻る', admin_products_path
+  = link_to t('text.back'), :back 

@@ -1,7 +1,7 @@
 h3
-  | 製品一覧
+  span.glyphicon.glyphicon-list
+  |  #{t('product.list')}
 #searchFormRender
   = render 'search_form', search_product: @search_product
 #tableRender
   = render 'table', products: @products
-br

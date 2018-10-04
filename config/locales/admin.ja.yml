@@ -1,0 +1,69 @@
+---
+ja:
+  text:
+    error: エラー
+    home: ホーム
+    all: すべて
+    back: 戻る
+    edit: 編集
+    new: 登録
+    manage: 管理
+    created_at: 作成日時
+    updated_at: 更新日時
+    setting: 設定
+    status: ステータス
+    total_amount: 総量
+    remaining_amount: 残量
+    sell_amount: 売上量
+    price: 価格(円)
+    description: 説明
+    image: 画像
+    image_url: 画像URL
+    upload: アップロード
+    search: 検索
+    search_condition: 検索条件
+    account: アカウント
+    email: メールアドレス
+  account:
+    login: ログイン
+    logout: ログアウト
+    edit: アカウント編集
+    new: アカウント登録
+  user:
+    id: ユーザーID
+    name: ユーザー名
+    list: ユーザー一覧
+    delete: ユーザー削除
+    manage: ユーザー管理
+    detail: ユーザー詳細
+    change_role: ロール変更
+  category:
+    id: カテゴリーID
+    name: カテゴリー名
+    list: カテゴリー一覧
+    new: カテゴリー登録
+    edit: カテゴリー編集
+    delete: カテゴリー削除
+    manage: カテゴリー管理
+    detail: カテゴリー詳細
+  publisher:
+    id: パブリッシャーID
+    name: パブリッシャー名
+    list: パブリッシャー一覧
+    new: パブリッシャー登録
+    edit: パブリッシャー編集
+    delete: パブリッシャー削除
+    manage: パブリッシャー管理
+    detail: パブリッシャー詳細
+  product:
+    id: 製品ID
+    name: 製品名
+    list: 製品ー一覧
+    new: 製品登録
+    edit: 製品編集
+    delete: 製品削除
+    manage: 製品管理 
+    detail: 製品詳細
+  confirm:
+    delete: 本当によろしいですか?
+

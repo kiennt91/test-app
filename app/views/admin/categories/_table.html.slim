@@ -2,14 +2,14 @@
   table.table.table-bordered
     thead
       tr
-        th.text-center
-          | カテゴリー名
-        th.text-center
-          | 作成日時
-        th.text-center
-          | 更新日時
-        th.text-center[colspan="3"]
-          | 設定
+        th.text-center.length-large
+          = t('category.name')
+        th.text-center.length-large
+          = t('text.created_at')
+        th.text-center.length-large
+          = t('text.updated_at')
+        th.text-center.length-small[colspan="3"]
+          = t('text.setting')
     tbody
       - @categories.each do |category|
         tr
@@ -20,11 +20,14 @@
           td
             = category.updated_at_label
           td.text-center
-            = link_to '詳細', [:admin, category]
+            = link_to [:admin, category] do
+              span.glyphicon.glyphicon-list-alt
           td.text-center
-            = link_to '編集', edit_admin_category_path(category)
+            = link_to edit_admin_category_path(category) do
+              span.glyphicon.glyphicon-edit
           td.text-center
-            = link_to '削除', [:admin, category], method: :delete, data: { confirm: '本当によろしいですか?' }
+            = link_to [:admin, category], method: :delete, data: { confirm: t('confirm.delete') } do
+              span.glyphicon.glyphicon-trash
       = paginate @categories
 - else
   h4

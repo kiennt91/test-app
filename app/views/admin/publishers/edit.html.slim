@@ -1,5 +1,5 @@
 .action-form
   h3
-    | パブリッシャー編集
+    = t('publisher.edit')
   = render 'form', publisher: @publisher, action: 'update'
-  = link_to '戻る', admin_publishers_path
+  = link_to t('text.back'), :back

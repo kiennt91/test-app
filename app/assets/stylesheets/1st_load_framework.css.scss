@@ -45,48 +45,6 @@ section {
   margin-top: 20px;
   }
 
-// 共通フォーム用
-.base-form {
-  margin: 0 auto;
-}
-.base-form form {
-  @extend .well;
-  @extend .well-lg;
-}
-.base-form .right {
-  float: right !important;
-}
-.base-form .button {
-  @extend .btn;
-  @extend .btn-primary;
-}
-.base-form fieldset {
-  @extend .well;
-}
-
-// 検索フォーム用
-.search-form {
-  @extend .base-form;
-  max-width: none;
-  padding-top: 0;
-}
-
-.search-form form {
-  padding-bottom: 25px;
-  margin-bottom: 15px;
-}
-
-// 認証、登録、編集フォーム用
-.action-form {
-  @extend .base-form;
-  padding-top: 30px;
-  max-width: 460px;
-}
-
-.action-form form {
-  padding-bottom: 40px;
-}
-
 #error_explanation:not(:empty) {
   @extend .alert;
   @extend .alert-danger;

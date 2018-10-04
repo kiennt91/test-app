@@ -32,13 +32,14 @@ $(document).on('turbolinks:load', function() {
 
   // 画像URLが変更される場合、プレビュー画像も反映
   $('#product_image_url').on('change', function(){
-    $('.preview-img').attr('src', $(this).val());
+    $('.preview-product-img').attr('src', $(this).val());
   });
 
-  // 画像URLが不正の場合、プレビュー画像はNO_IMAGEをセット
-  $('.preview-img').error(function (){
+  // 画像が不正の場合、NO_IMAGEをセット
+  $('img').error(function (){
+    var img_target = this;
     setTimeout(function() {
-      $('.preview-img').attr('src', '/assets/no_img.png');
+      $(img_target).attr('src', '/assets/no_img.png');
     }, 0);
   });
 });

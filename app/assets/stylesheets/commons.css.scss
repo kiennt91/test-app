@@ -93,9 +93,7 @@
   @extend .well;
   @extend .well-lg;
 
-  .left {
-    float: left !important;
-  }
+  .pre-line { white-space: pre-line; }
 }
 // end -- ボックス -- end
 

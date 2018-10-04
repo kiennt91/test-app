@@ -3,50 +3,49 @@ h3
   |  #{t('product.detail')}
 .base-box
   .row
-    label.col-md-2.col-sm-2.col-xs-2
-      | #{t('product.name')} : 
-    .col-md-4.col-sm-4.col-xs-4
-      = @product.name
-  .row
-    label.col-md-2.col-sm-2.col-xs-2
-      | #{t('category.name')} : 
-    .col-md-4.col-sm-4.col-xs-4
-      = @product.category.name
-  .row
-    label.col-md-2.col-sm-2.col-xs-2
-      | #{t('publisher.name')} : 
-    .col-md-4.col-sm-4.col-xs-4
-      = @product.publisher.name
-  .row
-    label.col-md-2.col-sm-2.col-xs-2
-      | #{t('text.status')} : 
-    .col-md-4.col-sm-4.col-xs-4
-      = @product.status_i18n
-  .row
-    label.col-md-2.col-sm-2.col-xs-2
-      | #{t('text.remaining_amount')} : 
-    .col-md-4.col-sm-4.col-xs-4
-      = @product.remaining_amount_label
-  .row
-    label.col-md-2.col-sm-2.col-xs-2
-      | #{t('text.sell_amount')} : 
-    .col-md-4.col-sm-4.col-xs-4
-      = @product.sell_amount_label
-  .row
-    label.col-md-2.col-sm-2.col-xs-2
-      | #{t('text.price')} : 
-    .col-md-4.col-sm-4.col-xs-4
-      = @product.price_label
-  .row
-    label.col-md-2.col-sm-2.col-xs-2
-      | #{t('text.description')} : 
-    .col-md-4.col-sm-4.col-xs-4
-      = @product.description
-  .row
-    label.col-md-2.col-sm-2.col-xs-2
-      | #{t('text.image')} : 
-    .col-md-4.col-sm-4.col-xs-4
-      img.preview-img.left src = @product.image_url
+    .col-md-2.col-sm-2.col-xs-2
+      img.detail-product-img.left src = @product.image_url
+    .col-md-10.col-sm-10.col-xs-10
+      .row
+        label.col-md-2.col-sm-2.col-xs-2
+          | #{t('product.name')} : 
+        .col-md-4.col-sm-4.col-xs-4
+          = @product.name
+      .row
+        label.col-md-2.col-sm-2.col-xs-2
+          | #{t('category.name')} : 
+        .col-md-4.col-sm-4.col-xs-4
+          = @product.category.name
+      .row
+        label.col-md-2.col-sm-2.col-xs-2
+          | #{t('publisher.name')} : 
+        .col-md-4.col-sm-4.col-xs-4
+          = @product.publisher.name
+      .row
+        label.col-md-2.col-sm-2.col-xs-2
+          | #{t('text.status')} : 
+        .col-md-4.col-sm-4.col-xs-4
+          = @product.status_i18n
+      .row
+        label.col-md-2.col-sm-2.col-xs-2
+          | #{t('text.remaining_amount')} : 
+        .col-md-4.col-sm-4.col-xs-4
+          = @product.remaining_amount_label
+      .row
+        label.col-md-2.col-sm-2.col-xs-2
+          | #{t('text.sell_amount')} : 
+        .col-md-4.col-sm-4.col-xs-4
+          = @product.sell_amount_label
+      .row
+        label.col-md-2.col-sm-2.col-xs-2
+          | #{t('text.price')} : 
+        .col-md-4.col-sm-4.col-xs-4
+          = @product.price_label
+      .row
+        label.col-md-2.col-sm-2.col-xs-2
+          | #{t('text.description')} : 
+        .pre-line.col-md-6.col-sm-6.col-xs-6
+          = @product.description
 
 
 = link_to t('text.edit'), edit_admin_product_path(@product)

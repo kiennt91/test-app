@@ -11,7 +11,7 @@ h3
     label.col-md-2.col-sm-2.col-xs-2
       | #{t('publisher.list')} :  
     .col-md-4.col-sm-4.col-xs-4
-      - @category.publishers.each do |publisher|
+      - @category.publishers.distinct.each do |publisher|
         = link_to publisher.name, [:admin, publisher]
         br
 = link_to t('text.edit'), edit_admin_category_path(@category)

@@ -32,7 +32,7 @@
     .col-sm-3
       = button_tag type: 'button', class: 'upload-btn btn btn-primary right'
         | Upload
-  img.preview-img src = ( form.object.image_url || '' )
+  img.preview-product-img src = ( form.object.image_url || '' )
   .form-group
     = form.label :description, t('text.description')
     = form.text_area :description, rows: 10, class: 'form-control'

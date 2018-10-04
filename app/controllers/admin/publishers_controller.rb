@@ -1,5 +1,5 @@
 class Admin::PublishersController < Admin::Base
-  before_action :set_publisher, only: [:edit, :update, :destroy]
+  before_action :set_publisher, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/publishers
   def index
@@ -17,7 +17,6 @@ class Admin::PublishersController < Admin::Base
 
   # GET /admin/publishers/1
   def show
-    @publisher = Publisher.preload(:categories).find(params[:id])
   end
 
   # GET /admin/publishers/new

@@ -3,18 +3,10 @@ class Search::Category < Search::Base
   attr_accessor(*ATTRIBUTES)
 
   def search
-    results = ::Category.all
-
-    # パブリッシャーで検索が必要場合 
-    if publisher_id.present?
-      results = results.joins(:publishers)
-        .where(publisher_table[:id].eq(publisher_id))
-    end
-
-    # カテゴリー名で検索
-    results = results.where(contains(category_table[:name], name)) if name.present? 
-    results = results.order(category_table[:name])
-    results
+    @search ||= ::Category
+      .search_by_name(name)
+      .search_by_publisher_id(publisher_id)
+      .order_by_name
   end
 
 end

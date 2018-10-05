@@ -34,7 +34,7 @@ class Admin::ProductsController < Admin::Base
       @product = Product.new(product_params)
   
       if @product.save
-        redirect_to [:admin, @product], notice: '製品を登録しました。'
+        redirect_to [:admin, @product], notice: '商品を登録しました。'
       else
         render :new 
       end
@@ -43,7 +43,7 @@ class Admin::ProductsController < Admin::Base
     # PATCH/PUT /admin/products/1
     def update
       if @product.update(product_params)
-        redirect_to [:admin, @product], notice: '製品を更新しました。'
+        redirect_to [:admin, @product], notice: '商品を更新しました。'
       else
         render :edit
       end
@@ -52,7 +52,7 @@ class Admin::ProductsController < Admin::Base
     # DELETE /admin/products/1
     def destroy
       @product.destroy
-      redirect_to admin_products_url, notice: '製品を削除しました。'
+      redirect_to admin_products_url, notice: '商品を削除しました。'
     end
 
     # POST /admin/products/upload

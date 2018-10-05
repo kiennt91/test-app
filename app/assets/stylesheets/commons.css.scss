@@ -94,6 +94,14 @@
   @extend .well-lg;
 
   .pre-line { white-space: pre-line; }
+  .display-flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .thumbnail {
+    height: 100% !important;
+  }
+
 }
 // end -- ボックス -- end
 

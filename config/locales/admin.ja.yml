@@ -56,14 +56,14 @@ ja:
     manage: パブリッシャー管理
     detail: パブリッシャー詳細
   product:
-    id: 製品ID
-    name: 製品名
-    list: 製品ー一覧
-    new: 製品登録
-    edit: 製品編集
-    delete: 製品削除
-    manage: 製品管理 
-    detail: 製品詳細
+    id: 商品ID
+    name: 商品名
+    list: 商品ー一覧
+    new: 商品登録
+    edit: 商品編集
+    delete: 商品削除
+    manage: 商品管理 
+    detail: 商品詳細
   confirm:
     delete: 本当によろしいですか?
 

@@ -69,3 +69,9 @@ group :development do
   gem 'better_errors'
   gem 'rails_layout'
 end
+
+group :test do
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
+  gem 'faker'
+end

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'pages#index'
+  root 'homes#index'
 
   devise_for :users
 
@@ -20,6 +20,12 @@ Rails.application.routes.draw do
       get  'search', on: :collection
       post 'search', on: :collection
       post 'upload', on: :collection
+    end
+  end
+
+  scope module: :user do
+    resources :categories, only: :show do
+      resources :products, only: :show
     end
   end
 end

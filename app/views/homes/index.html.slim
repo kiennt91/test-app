@@ -1,0 +1,22 @@
+- @categories.each do |category|
+  h3 
+    = category.name
+  .base-box
+    .row.display-flex
+      - category.products.each do |product|
+        .col-sm-4.col-md-3
+          .thumbnail
+            = link_to category_product_path(category, product) do
+              br
+              img.detail-product-img.img-thumbnail src = product.image_url
+            .caption
+              h4
+                = link_to category_product_path(category, product) do
+                  = product.name
+              p 
+                | by #{product.publisher.name}
+              p
+                | ¥ #{product.price_label}
+    br
+    - if category.products.size == 4 
+      = link_to t('text.show_more'), category, class: 'right'

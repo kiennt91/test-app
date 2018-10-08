@@ -24,6 +24,9 @@ ja:
     search_condition: 検索条件
     account: アカウント
     email: メールアドレス
+    add_to_cart: 購入
+    category: カテゴリー
+    show_more: もっと見る
   account:
     login: ログイン
     logout: ログアウト
@@ -66,4 +69,5 @@ ja:
     detail: 商品詳細
   confirm:
     delete: 本当によろしいですか?
+    not_release: 申し訳ございません、こちらの機能はまだリリースされません。
 

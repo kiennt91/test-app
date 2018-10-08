@@ -1,0 +1,18 @@
+h3 
+  = @category.name
+.base-box
+  .row.display-flex
+    - @products.each do |product|
+      .col-sm-4.col-md-3
+        .thumbnail
+          = link_to category_product_path(@category, product) do
+            br
+            img.detail-product-img.img-thumbnail src = product.image_url
+          .caption
+            h4
+              = link_to category_product_path(@category, product) do
+                = product.name
+            p 
+              | by #{product.publisher.name}
+            p
+              | ¥ #{product.price_label}

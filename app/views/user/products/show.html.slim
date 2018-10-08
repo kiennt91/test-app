@@ -5,6 +5,10 @@ h3
   .row
     .col-md-2.col-sm-2.col-xs-2
       img.detail-product-img src = @product.image_url
+      br
+      = button_tag type: 'button', class: 'btn btn-primary btn-block right', data: { confirm: t('confirm.not_release') }
+        span.glyphicon.glyphicon-shopping-cart
+        |  #{t('text.add_to_cart')}
     .col-md-10.col-sm-10.col-xs-10
       .row
         label.col-md-2.col-sm-2.col-xs-2
@@ -15,27 +19,12 @@ h3
         label.col-md-2.col-sm-2.col-xs-2
           | #{t('category.name')} : 
         .col-md-4.col-sm-4.col-xs-4
-          = @product.category.name
+          = @category.name
       .row
         label.col-md-2.col-sm-2.col-xs-2
           | #{t('publisher.name')} : 
         .col-md-4.col-sm-4.col-xs-4
           = @product.publisher.name
-      .row
-        label.col-md-2.col-sm-2.col-xs-2
-          | #{t('text.status')} : 
-        .col-md-4.col-sm-4.col-xs-4
-          = @product.status_i18n
-      .row
-        label.col-md-2.col-sm-2.col-xs-2
-          | #{t('text.remaining_amount')} : 
-        .col-md-4.col-sm-4.col-xs-4
-          = @product.remaining_amount_label
-      .row
-        label.col-md-2.col-sm-2.col-xs-2
-          | #{t('text.sell_amount')} : 
-        .col-md-4.col-sm-4.col-xs-4
-          = @product.sell_amount_label
       .row
         label.col-md-2.col-sm-2.col-xs-2
           | #{t('text.price')} : 
@@ -48,6 +37,4 @@ h3
           = @product.description
 
 
-= link_to t('text.edit'), edit_admin_product_path(@product)
-|  | 
 = link_to t('text.back'), :back

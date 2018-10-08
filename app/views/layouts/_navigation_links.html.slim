@@ -1,1 +1,8 @@
-- if user_signed_in?
+li.dropdown
+  a.dropdown-toggle[data-toggle="dropdown" href="#"]
+    = t('text.category') 
+    span.caret
+  ul.dropdown-menu
+    - Category.all.each do |category|
+      li
+        = link_to category.name, category

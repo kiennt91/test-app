@@ -24,6 +24,9 @@ class Product < ApplicationRecord
   scope :search_by_status, ->(status) { where(arel_table[:status].eq(statuses[status])) if status.present? }
   scope :order_by_name, -> { order(arel_table[:name]) }
 
+  # 公開中の商品のみ取得
+  scope :with_running, -> { search_by_status('running') }
+
   # 残量計算
   def remaining_amount
     @remaining_amount ||= total_amount - sell_amount

@@ -18,7 +18,7 @@ class Product < ApplicationRecord
   enum status: [:setting, :running, :stop]
 
   # 検索機能用のスコープ
-  scope :search_by_name, ->(name) { contains(Category.arel_table[:name], name) if name.present? }
+  scope :search_by_name, ->(name) { contains(arel_table[:name], name) if name.present? }
   scope :search_by_category_name, ->(category_name) { joins(:category).contains(Category.arel_table[:name], category_name) if category_name.present? }
   scope :search_by_publisher_name, ->(publisher_name) { joins(:publisher).contains(Publisher.arel_table[:name], publisher_name) if publisher_name.present? }
   scope :search_by_status, ->(status) { where(arel_table[:status].eq(statuses[status])) if status.present? }
